@@ -34,7 +34,28 @@ namespace AppBusca_CEP.Service
             return end;
         }
 
+        public static async Task<List<Cidade>> GetCidadesByEstado(string uf)
+        {
+            List<Cidade> arr_cidades = new List<Cidade>();
 
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(
+                    "https://cep.metoda.com.br/cidade/by-uf?uf=" + uf);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = response.Content.ReadAsStringAsync().Result;
+
+                    arr_cidades = JsonConvert.DeserializeObject<List<Cidade>>(json);
+
+                }
+                else
+                    throw new Exception(response.RequestMessage.Content.ToString());
+            }
+
+            return arr_cidades;
+        }
 
         /*
          Obtem a lista de logradouros (ruas) de um bairro.
@@ -64,25 +85,26 @@ namespace AppBusca_CEP.Service
         /*
         Obtem o CEP de um logradouro
         */
-        public static async Task<Cep> GetCepByLogradouro(string logradouro)
+        public static async Task<List<Cep>> GetCepsByLogradouro(string logradouro)
         {
-            Cep cep;
+            List<Cep> arr_ceps = new List<Cep>();
 
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/cep/by-logradouro?logradouro=" + logradouro);
+                HttpResponseMessage response = await client.GetAsync(
+                    "https://cep.metoda.com.br/cep/by-logradouro?logradouro=" + logradouro);
 
                 if (response.IsSuccessStatusCode)
                 {
                     string json = response.Content.ReadAsStringAsync().Result;
 
-                    cep = JsonConvert.DeserializeObject<Cep>(json);
+                    arr_ceps = JsonConvert.DeserializeObject<List<Cep>>(json);
                 }
                 else
                     throw new Exception(response.RequestMessage.Content.ToString());
             }
 
-            return cep;
+            return arr_ceps;
         }
 
 
@@ -137,13 +159,13 @@ namespace AppBusca_CEP.Service
             return arr_bairros;
         }
 
-        
+
 
 
         /*
             https://cep.metoda.com.br/endereco/by-cep?cep=17210580
             https://cep.metoda.com.br/logradouro/by-bairro?id_cidade=4874&bairro=Jardim
-            https://cep.metoda.com.br/cep/by-logradouro?logradouro=Ruax
+            https://cep.metoda.com.br/cep/by-logradouro?logradouro=Rua Raphael de Almeida Leite
             https://cep.metoda.com.br/cidade/by-uf?uf=SP
             https://cep.metoda.com.br/bairro/by-cidade?id=4874
          */
