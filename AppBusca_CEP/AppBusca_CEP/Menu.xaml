@@ -22,6 +22,8 @@
 
             <Button Grid.Row="2" Grid.Column="1" Text="" Clicked="Button_Clicked_3"/>
 
+            <Button Grid.Row="3" Grid.Column="0" Text="" Clicked="Button_Clicked_4"/>
+
 
         </Grid>
     </ContentPage.Content>
