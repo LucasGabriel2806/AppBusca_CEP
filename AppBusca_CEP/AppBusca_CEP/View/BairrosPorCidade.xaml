@@ -6,45 +6,23 @@
         <StackLayout>
 
             <StackLayout Orientation="Horizontal">
-                <SearchBar x:Name="txt_cidade"
-                           Placeholder="Qual é sua cidade?" />
-                <Button Text="Buscar" x:Name="btnBuscar" Clicked="btnBuscar_Clicked"/>
+                <Picker x:Name="pck_estado"
+                SelectedIndexChanged="pck_estado_SelectedIndexChanged"
+                Title="Selecione o Estado:" >
+                    <Picker.Items>
+                        <x:String>SP</x:String>
+                        <x:String>MG</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Picker x:Name="pck_cidade"
+                        SelectedIndexChanged="pck_cidade_SelectedIndexChanged"
+                        ItemDisplayBinding="{Binding descricao }"
+                        Title="Selecione a Cidade">
+                </Picker>
             </StackLayout>
-
-            <ActivityIndicator x:Name="carregando" IsRunning="False" />
-
-            <ListView x:Name="lst_ceps">
-                <ListView.Header>
-                    <Grid ColumnDefinitions="Auto, *, *, Auto"
-                          RowDefinitions="Auto">
-                        <Label Grid.Row="0" Grid.Column="0"
-                               Text="CEP" />
-                        <Label Grid.Row="0" Grid.Column="1"
-                               Text="Logradouro" />
-                        <Label Grid.Row="0" Grid.Column="2"
-                               Text="Cidade" />
-                        <Label Grid.Row="0" Grid.Column="3"
-                               Text="UF" />
-                    </Grid>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid ColumnDefinitions="Auto, *, *, Auto"
-                                  RowDefinitions="Auto">
-                                <Label Grid.Row="0" Grid.Column="0"
-                                       Text="{Binding CEP}" />
-                                <Label Grid.Row="0" Grid.Column="1"
-                                       Text="{Binding descricao}" />
-                                <Label Grid.Row="0" Grid.Column="2"
-                                       Text="{Binding descricao_cidade}" />
-                                <Label Grid.Row="0" Grid.Column="3"
-                                       Text="{Binding UF}" />
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
         </StackLayout>
+            
+            
     </ContentPage.Content>
 </ContentPage>
