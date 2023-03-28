@@ -2,11 +2,50 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppBusca_CEP.View.EnderecoPorCep">
+
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout Orientation="Horizontal">
+                <SearchBar x:Name="txt_endereco"
+                           Placeholder="Qual é o seu cep?" />
+                <Button Text="Buscar" x:Name="btnBuscar" Clicked="btnBuscar_Clicked"/>
+                
+            </StackLayout>
+
+            <ActivityIndicator x:Name="carregando" IsRunning="False" />
+
+            <ListView x:Name="lst_endereco">
+                <ListView.Header>
+                    <Grid ColumnDefinitions="Auto, *, *, Auto"
+                          RowDefinitions="Auto">
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Text="CEP" />
+                        <Label Grid.Row="0" Grid.Column="1"
+                               Text="Descrição" />
+                        <Label Grid.Row="0" Grid.Column="2"
+                               Text="Bairro" />
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions="Auto, *, *, Auto"
+                                  RowDefinitions="Auto">
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       Text="{Binding CEP}" />
+                                <Label Grid.Row="0" Grid.Column="1"
+                                       Text="{Binding descricao}" />
+                                <Label Grid.Row="0" Grid.Column="2"
+                                       Text="{Binding descricao_bairro}" />
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
+
+
 </ContentPage>
