@@ -4,9 +4,39 @@
              x:Class="AppBusca_CEP.View.CidadesPorUf">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal">
+                <SearchBar x:Name="txt_uf"
+                           Placeholder="Qual é sua UF?" />
+                <Button Text="Buscar" x:Name="btnBuscar" 
+                        Clicked="btnBuscar_Clicked"/>
+            </StackLayout>
+
+            <ActivityIndicator x:Name="carregando" IsRunning="False" />
+
+            <ListView x:Name="lst_cidades">
+                <ListView.Header>
+                    <Grid ColumnDefinitions="Auto, *, *, Auto"
+                          RowDefinitions="Auto">
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Text="Cidade" />
+
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions="Auto, *, *, Auto"
+                                  RowDefinitions="Auto">
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       Text="{Binding descricao}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

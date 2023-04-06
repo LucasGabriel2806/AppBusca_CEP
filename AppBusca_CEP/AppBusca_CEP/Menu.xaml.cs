@@ -17,21 +17,21 @@ namespace AppBusca_CEP
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void BtnCepLogradouro_Clicked(object sender, EventArgs e)
         {
             //Cep por logradouro
             Navigation.PushAsync(
                 new View.BuscaCepPorLogradouro());
         }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
+        private void BtnCidadesUf_Clicked(object sender, EventArgs e)
         {
             //Cidades por uf
             Navigation.PushAsync(
                 new View.CidadesPorUf());
         }
 
-        private void Button_Clicked_2(object sender, EventArgs e)
+        private void BtnBairrosCidade_Clicked(object sender, EventArgs e)
         {
             //Ruas de bairro por cidade
             Navigation.PushAsync(
@@ -39,14 +39,14 @@ namespace AppBusca_CEP
 
         }
 
-        private void Button_Clicked_3(object sender, EventArgs e)
+        private void BtnLogradourosBairro_Clicked(object sender, EventArgs e)
         {
             //Logradouros por bairro
             Navigation.PushAsync(
                 new View.LogradouroPorBairro());
         }
 
-        private void Button_Clicked_4(object sender, EventArgs e)
+        private void BtnEnderecoCep_Clicked(object sender, EventArgs e)
         {
             //Endereço por cep
             Navigation.PushAsync(

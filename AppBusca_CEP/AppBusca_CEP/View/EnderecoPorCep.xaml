@@ -20,10 +20,8 @@
                     <Grid ColumnDefinitions="Auto, *, *, Auto"
                           RowDefinitions="Auto">
                         <Label Grid.Row="0" Grid.Column="0"
-                               Text="CEP" />
+                               Text="Ci" />
                         <Label Grid.Row="0" Grid.Column="1"
-                               Text="Descrição" />
-                        <Label Grid.Row="0" Grid.Column="2"
                                Text="Bairro" />
                     </Grid>
                 </ListView.Header>
@@ -33,12 +31,9 @@
                             <Grid ColumnDefinitions="Auto, *, *, Auto"
                                   RowDefinitions="Auto">
                                 <Label Grid.Row="0" Grid.Column="0"
-                                       Text="{Binding CEP}" />
+                                       Text="{Binding descricao_cidade}" />
                                 <Label Grid.Row="0" Grid.Column="1"
-                                       Text="{Binding descricao}" />
-                                <Label Grid.Row="0" Grid.Column="2"
                                        Text="{Binding descricao_bairro}" />
-
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

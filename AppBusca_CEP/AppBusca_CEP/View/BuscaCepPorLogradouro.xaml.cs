@@ -39,5 +39,7 @@ namespace AppBusca_CEP.View
                 btnBuscar.IsEnabled = true;
             }
         }
+
+        
     }
 }

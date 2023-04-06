@@ -9,20 +9,24 @@
 
             <Label Grid.Row="0" Grid.Column="0"
                    Grid.ColumnSpan="2" 
+                   HorizontalOptions="Center"
+                   FontSize="Body"
                    Text="Api Busca Cep --- O que você deseja buscar?" />
 
-            <Button Grid.Row="1" Grid.Column="0"
-                    Text="Cep por Logradouro" Clicked="Button_Clicked"/>
+            <Button Grid.Row="1" Grid.Column="0" x:Name="BtnCepLogradouro"
+                    Text="o Cep de um Logradouro" Clicked="BtnCepLogradouro_Clicked"/>
 
-            <Button Grid.Row="1" Grid.Column="1"
-                    Text="Cidades por UF" Clicked="Button_Clicked_1" />
+            <Button Grid.Row="1" Grid.Column="1" x:Name="BtnCidadesUf"
+                    Text="as Cidades de um UF" Clicked="BtnCidadesUf_Clicked" />
 
-            <Button Grid.Row="2" Grid.Column="0"
-                    Text="Ruas de Bairro por Cidade" Clicked="Button_Clicked_2"/>
+            <Button Grid.Row="2" Grid.Column="0" x:Name="BtnBairrosCidade"
+                    Text="os Bairros de uma Cidade" Clicked="BtnBairrosCidade_Clicked"/>
 
-            <Button Grid.Row="2" Grid.Column="1" Text="Logradouros por Bairro" Clicked="Button_Clicked_3"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="BtnLogradourosBairro"
+                    Text="os Logradouros de um Bairro" Clicked="BtnLogradourosBairro_Clicked"/>
 
-            <Button Grid.Row="3" Grid.Column="0" Text="Endereço por Cep" Clicked="Button_Clicked_4"/>
+            <Button Grid.Row="3" Grid.Column="0" x:Name="BtnEnderecoCep"
+                    Text="o Endereço de um Cep" Clicked="BtnEnderecoCep_Clicked"/>
 
 
         </Grid>
